@@ -36,17 +36,17 @@ function cacheElements() {
 }
 
 function bindEvents() {
-  elements.playersTextarea.addEventListener("input", () => {
+  elements.playersTextarea.addEventListener("change", () => {
     limitTextareaLines();
     updateCounters();
   });
 
-  elements.teamCountInput.addEventListener("input", () => {
+  elements.teamCountInput.addEventListener("change", () => {
     enforceNumericBounds(elements.teamCountInput, MIN_TEAMS, 16);
     updateCounters();
   });
 
-  elements.playersPerTeamInput.addEventListener("input", () => {
+  elements.playersPerTeamInput.addEventListener("change", () => {
     enforceNumericBounds(
       elements.playersPerTeamInput,
       MIN_PLAYERS_PER_TEAM,

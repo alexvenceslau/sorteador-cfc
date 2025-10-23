@@ -4,6 +4,39 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Sorteador - Cerva Fut Clube</title>
+    <meta
+      name="description"
+      content="Monte times tão equilibrados que até o gandula vai pedir selfie. Sorteador oficial do Cerva Fut Clube!"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Sorteador - Cerva Fut Clube" />
+    <meta
+      property="og:description"
+      content="Monte times tão equilibrados que até o gandula vai pedir selfie. Sorteador oficial do Cerva Fut Clube!"
+    />
+    <meta
+      property="og:url"
+      content="https://cerva-fut-clube.example/sorteador"
+    />
+    <meta
+      property="og:image"
+      content="https://cerva-fut-clube.example/images/shareImage.png"
+    />
+    <meta
+      property="og:image:alt"
+      content="Escudo do Cerva Fut Clube com bolas de futebol em fundo escuro."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sorteador - Cerva Fut Clube" />
+    <meta
+      name="twitter:description"
+      content="Monte times tão equilibrados que até o gandula vai pedir selfie. Sorteador oficial do Cerva Fut Clube!"
+    />
+    <meta
+      name="twitter:image"
+      content="https://cerva-fut-clube.example/images/shareImage.png"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -37,37 +70,163 @@
             </p>
           </div>
           <div class="counter-pill">
+            <svg
+              class="counter-pill__icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M4 6h16M4 12h16M4 18h16"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+              <circle cx="7" cy="6" r="1" fill="currentColor" />
+              <circle cx="7" cy="12" r="1" fill="currentColor" />
+              <circle cx="7" cy="18" r="1" fill="currentColor" />
+            </svg>
             <span id="players-count">0 jogadores</span>
             <span id="slots-count">0 vagas totais</span>
           </div>
         </div>
 
-        <label for="players" class="sr-only">Jogadores</label>
-        <textarea
-          id="players"
-          name="players"
-          placeholder="João\nMaria\nFulano"
-          spellcheck="false"
-        ></textarea>
+        <label class="form-field form-field--textarea" for="players">
+          <span class="form-field__label">
+            <svg
+              class="form-field__icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M9 6h11M9 12h11M9 18h11M5 6h.01M5 12h.01M5 18h.01"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            Lista de jogadores
+          </span>
+          <textarea
+            id="players"
+            name="players"
+            placeholder="João\nMaria\nFulano"
+            spellcheck="false"
+          ></textarea>
+        </label>
 
         <div class="form-grid">
           <label class="form-field" for="team-count">
-            <span>Quantidade de times</span>
-            <input id="team-count" type="number" value="2" min="2" max="16" />
+            <span class="form-field__label">
+              <svg
+                class="form-field__icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M17 20v-2a3 3 0 00-3-3H6a3 3 0 00-3 3v2"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9 11a3 3 0 100-6 3 3 0 000 6z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M21 20v-2a3 3 0 00-2-2.82"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M16 5a3 3 0 110 6"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Quantidade de times
+            </span>
+            <input id="team-count" type="number" value="2" />
           </label>
           <label class="form-field" for="players-per-team">
-            <span>Jogadores por time</span>
-            <input
-              id="players-per-team"
-              type="number"
-              value="5"
-              min="1"
-              max="25"
-            />
+            <span class="form-field__label">
+              <svg
+                class="form-field__icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M15 19v-2a3 3 0 00-3-3H6a3 3 0 00-3 3v2"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9 11a3 3 0 100-6 3 3 0 000 6z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M19 8v6"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M22 11h-6"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Jogadores por time
+            </span>
+            <input id="players-per-team" type="number" value="5" />
           </label>
         </div>
 
         <button id="draft-button" type="button" class="button-primary" disabled>
+          <svg
+            class="button-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M16.862 4.487l-1.35 3.055a1 1 0 00.077.938l1.694 2.71a1 1 0 01-.197 1.273l-2.588 2.273a1 1 0 01-1.3.017l-2.657-2.243a1 1 0 00-.96-.173l-3.04 1.012a1 1 0 01-1.265-1.078l.318-3.208a1 1 0 00-.27-.794L3.63 6.37a1 1 0 01.318-1.624l3.016-1.273a1 1 0 00.53-.5l1.4-2.94a1 1 0 011.79 0l1.4 2.94a1 1 0 00.53.5l3.016 1.273a1 1 0 01.232 1.741z"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M17 18h4M19 20v-4"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          </svg>
           Sortear times
         </button>
 
@@ -89,6 +248,40 @@
             class="button-ghost"
             disabled
           >
+            <svg
+              class="button-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M6 7h12"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+              <path
+                d="M9 7V4h6v3"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M10 11v6M14 11v6"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+              <path
+                d="M5 7l1 13h12l1-13"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
             Limpar histórico
           </button>
         </div>
