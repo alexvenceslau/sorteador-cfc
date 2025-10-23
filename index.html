@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sorteador - Cerva Fut Clube</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header">
+        <div class="app-header__logo">
+          <img src="./public/logoCFC.png" alt="Cerva Fut Clube" />
+        </div>
+        <div class="app-header__text">
+          <h1>Sorteador - CFC</h1>
+          <p>
+            Jogue os craques no sorteio e crie times tão equilibrados que até o
+            banco vai vibrar!
+          </p>
+        </div>
+      </header>
+
+      <section class="panel" aria-labelledby="section-input">
+        <div class="panel-header">
+          <div class="panel-header__text">
+            <h2 id="section-input">Configuração do sorteio</h2>
+            <p>
+              Informe um jogador por linha e ajuste a quantidade de times e
+              integrantes.
+            </p>
+          </div>
+          <div class="counter-pill">
+            <span id="players-count">0 jogadores</span>
+            <span id="slots-count">0 vagas totais</span>
+          </div>
+        </div>
+
+        <label for="players" class="sr-only">Jogadores</label>
+        <textarea
+          id="players"
+          name="players"
+          placeholder="João\nMaria\nFulano"
+          spellcheck="false"
+        ></textarea>
+
+        <div class="form-grid">
+          <label class="form-field" for="team-count">
+            <span>Quantidade de times</span>
+            <input id="team-count" type="number" value="2" min="2" max="16" />
+          </label>
+          <label class="form-field" for="players-per-team">
+            <span>Jogadores por time</span>
+            <input
+              id="players-per-team"
+              type="number"
+              value="5"
+              min="1"
+              max="25"
+            />
+          </label>
+        </div>
+
+        <button id="draft-button" type="button" class="button-primary" disabled>
+          Sortear times
+        </button>
+
+        <div id="feedback" class="feedback" hidden></div>
+      </section>
+
+      <section class="panel" aria-labelledby="section-results">
+        <div class="panel-header">
+          <div class="panel-header__text">
+            <h2 id="section-results">Resultado e histórico</h2>
+            <p>
+              Visualize o sorteio atual, recupere versões anteriores e limpe o
+              histórico.
+            </p>
+          </div>
+          <button
+            id="clear-history"
+            type="button"
+            class="button-ghost"
+            disabled
+          >
+            Limpar histórico
+          </button>
+        </div>
+
+        <div class="results-grid">
+          <div class="results-current">
+            <h3>Times sorteados</h3>
+            <div id="current-teams"></div>
+          </div>
+          <aside class="results-history" aria-label="Histórico de sorteios">
+            <h3>Histórico</h3>
+            <div id="history-list" class="history-list"></div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <p class="footer-note">
+      O resultado é salvo apenas neste dispositivo, sem envio para
+      servidores.<br />
+      Copyright (c) 2025 Criado por Alex Venceslau.
+    </p>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
