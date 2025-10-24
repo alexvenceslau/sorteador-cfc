@@ -1,6 +1,7 @@
 "use strict";
 
 const STORAGE_KEY = "sorteador-time__drafts";
+const PLAYERS_STORAGE_KEY = "sorteador-time__players";
 const MAX_HISTORY_ITEMS = 50;
 const MIN_TEAMS = 2;
 const MIN_PLAYERS_PER_TEAM = 1;
@@ -17,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   cacheElements();
   bindEvents();
   hydrateStateFromStorage();
+  loadSavedPlayers();
   updateCounters();
   renderCurrentDraft();
   renderHistory();
@@ -33,12 +35,15 @@ function cacheElements() {
   elements.currentTeamsContainer = document.getElementById("current-teams");
   elements.historyContainer = document.getElementById("history-list");
   elements.clearHistoryButton = document.getElementById("clear-history");
+  elements.configPanel = document.getElementById("config-panel");
+  elements.newDraftButton = document.getElementById("new-draft-button");
 }
 
 function bindEvents() {
   elements.playersTextarea.addEventListener("change", () => {
     limitTextareaLines();
     updateCounters();
+    savePlayers();
   });
 
   elements.teamCountInput.addEventListener("change", () => {
@@ -56,6 +61,12 @@ function bindEvents() {
   });
 
   elements.draftButton.addEventListener("click", handleDraft);
+
+  elements.newDraftButton.addEventListener("click", () => {
+    showConfigPanel();
+    elements.newDraftButton.style.display = "none";
+    hideFeedback();
+  });
 
   elements.clearHistoryButton.addEventListener("click", () => {
     state.history = [];
@@ -195,6 +206,8 @@ function handleDraft() {
   persistHistory();
   renderCurrentDraft();
   renderHistory();
+  hideConfigPanel();
+  elements.newDraftButton.style.display = "inline-flex";
   showFeedback("Times sorteados com sucesso!", "success");
 }
 
@@ -341,6 +354,33 @@ function showFeedback(message, type) {
 
 function hideFeedback() {
   elements.feedbackBox.hidden = true;
+}
+
+function loadSavedPlayers() {
+  try {
+    const savedPlayers = window.localStorage.getItem(PLAYERS_STORAGE_KEY);
+    if (savedPlayers) {
+      elements.playersTextarea.value = savedPlayers;
+    }
+  } catch (error) {
+    console.warn("Falha ao carregar jogadores salvos.", error);
+  }
+}
+
+function savePlayers() {
+  try {
+    window.localStorage.setItem(PLAYERS_STORAGE_KEY, elements.playersTextarea.value);
+  } catch (error) {
+    console.warn("Não foi possível salvar os jogadores.", error);
+  }
+}
+
+function hideConfigPanel() {
+  elements.configPanel.style.display = "none";
+}
+
+function showConfigPanel() {
+  elements.configPanel.style.display = "grid";
 }
 
 function generateUUID() {
